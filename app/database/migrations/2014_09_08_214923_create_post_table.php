@@ -16,13 +16,12 @@ class CreatePostTable extends Migration {
 			$table->increments('id');
 			$table->string('title');
 			$table->string('read_more');
-			$table->text('content')
+			$table->text('content');
 			$table->unsignedInteger('comment_count');
 			$table->timestamps();
-			$table->engine ='MyISAM';
+			$table->engine = 'MyISAM';
 		});
-		DB::statement('ALTER TABLE posts ADD FULLTEXT search(title, content)');
-	}
+        DB::statement('ALTER TABLE posts ADD FULLTEXT search(title, content)');	}
 
 	/**
 	 * Reverse the migrations.
